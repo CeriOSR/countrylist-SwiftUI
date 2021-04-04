@@ -9,25 +9,28 @@ import XCTest
 @testable import CountryDetails
 
 class CountryDetailsTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    var viewmodel: CountryListViewModel!
+    let mockApiService: ApiServiceProtocol = MockApiService()
+    override func setUp() {
+        viewmodel = CountryListViewModel(isForTest: false, service: mockApiService)
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func testViewModelEmptyState() throws {
+        let viewmodel = CountryListViewModel.emptyState()
+        XCTAssertTrue(viewmodel.countries.count == 0, "Countries count should be empty")
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    func test_Fetch_Countries_On_Success() throws {
+        var countries: [Country]?
+        var error: Error?
+        mockApiService.fetchCountries { list in
+            countries = list
+        } onError: { err in
+            error = err
         }
-    }
 
+        XCTAssertTrue(countries != nil)
+        XCTAssertTrue(error != nil)
+    }
 }
