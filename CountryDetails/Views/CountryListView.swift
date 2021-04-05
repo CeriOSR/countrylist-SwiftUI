@@ -42,6 +42,6 @@ struct CountryListView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        CountryListView(viewmodel: CountryListViewModel())
+        CountryListView(viewmodel: CountryListViewModel(isForTest: false))
     }
 }

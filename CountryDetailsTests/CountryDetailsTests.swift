@@ -11,17 +11,14 @@ import XCTest
 class CountryDetailsTests: XCTestCase {
     var viewmodel: CountryListViewModel!
     let mockApiService: ApiServiceProtocol = MockApiService()
-    override func setUp() {
-        viewmodel = CountryListViewModel(isForTest: false, service: mockApiService)
-    }
-
     
     func testViewModelEmptyState() throws {
-        let viewmodel = CountryListViewModel.emptyState()
+        let viewmodel = CountryListViewModel.emptyState(mockApiService)
         XCTAssertTrue(viewmodel.countries.count == 0, "Countries count should be empty")
     }
     
     func test_Fetch_Countries_On_Success() throws {
+        viewmodel = CountryListViewModel(isForTest: false, service: mockApiService)
         var countries: [Country]?
         var error: Error?
         mockApiService.fetchCountries { list in

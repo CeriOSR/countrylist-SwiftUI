@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct CountryDetailsApp: App {
-    @StateObject var viewmodel = CountryListViewModel()
+    @StateObject var viewmodel = CountryListViewModel(isForTest: false)
     var body: some Scene {
         WindowGroup {
             CountryListView(viewmodel: viewmodel)

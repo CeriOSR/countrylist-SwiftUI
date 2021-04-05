@@ -10,14 +10,12 @@ import Foundation
 class CountryListViewModel: ObservableObject {
     @Published var countries: [Country] = []
     private var service: ApiServiceProtocol
-    
-    init(isForTest: Bool = false ,service: ApiServiceProtocol = ApiService()) {
+    private var isForTest: Bool = false
+    init(isForTest: Bool, service: ApiServiceProtocol = ApiService()) {
         self.service = service
-        if isForTest {
-            
-        } else {
-            fetchCountries()
-        }
+        self.isForTest = isForTest
+        guard !self.isForTest else { return }
+        fetchCountries()
     }
     
     func fetchCountries() {
@@ -32,9 +30,9 @@ class CountryListViewModel: ObservableObject {
         }
     }
     
-    static func emptyState() -> CountryListViewModel {
-        let viewmodel = CountryListViewModel(isForTest: true)
-        viewmodel.countries = []
+    static func emptyState(_ apiService: ApiServiceProtocol) -> CountryListViewModel {
+        let viewmodel = CountryListViewModel(isForTest: true, service: apiService)
+//        viewmodel.countries = []
         return viewmodel
     }
 }
