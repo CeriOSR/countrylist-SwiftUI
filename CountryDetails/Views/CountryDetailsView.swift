@@ -12,12 +12,15 @@ struct CountryDetailsView: View {
     
     var body: some View {
         VStack {
+            Spacer()
             VStack {
                 Text("\(country.native)")
                     .padding(10)
                     .font(.title)
+                Text(country.emoji)
+                    .font(.system(size: 50))
                 Text("Country Code: \(country.code)")
-                    .padding(EdgeInsets(top: 30, leading: 10, bottom: 5, trailing: 10))
+                    .padding(EdgeInsets(top: 20, leading: 10, bottom: 5, trailing: 10))
                 Text("Country Phone Code: \(country.phone)").padding(5)
                 if let capital = country.capital {
                     Text("Capital: \(capital)").padding(5)
@@ -25,27 +28,28 @@ struct CountryDetailsView: View {
                 if let currency = country.currency {
                     Text("Currency: \(currency)").padding(5)
                 }
-                Spacer(minLength: 50)
+                Spacer()
+                VStack {
+                    let languageListView = LanguageListView(country: country)
+                    NavigationLink(
+                        destination: languageListView,
+                        label: {
+                            Text("Language")
+                    })
+                    .padding(10)
+                    let stateView = StateListView(country: country)
+                    NavigationLink(
+                        destination: stateView,
+                        label: {
+                            Text("States")
+                    })
+                    .padding(10)
+                }
+                Spacer(minLength: 100)
             }
-            VStack {
-                let languageListView = LanguageListView(country: country)
-                NavigationLink(
-                    destination: languageListView,
-                    label: {
-                        Text("Language")
-                })
-                .padding(10)
-                let stateView = StateListView(country: country)
-                NavigationLink(
-                    destination: stateView,
-                    label: {
-                        Text("States")
-                })
-                .padding(10)
-            }
-            Spacer(minLength: 100)
+            
         }
-        .navigationBarTitle("\(country.name) \(country.emoji)", displayMode: .inline)
+        .navigationBarTitle("\(country.name)", displayMode: .inline)
     }
 }
 

@@ -18,8 +18,10 @@ struct LanguageListView: View {
                 }
             }
             if country.languages.isEmpty {
-                Text("This country has no official language.")
+                Text("\(country.name) has no official language.")
+                    .multilineTextAlignment(.center)
                     .foregroundColor(.secondary)
+                    .padding(24)
             }
         }
         
