@@ -10,11 +10,14 @@ import SwiftUI
 struct CountryListView: View {
     
     @ObservedObject var viewmodel: CountryListViewModel
+    @State var searchText: String = ""
+    @State var isSearching: Bool = false
     
     var body: some View {
         NavigationView {
             List {
-                ForEach(viewmodel.countries, id: \.code) { country in
+                SearchBarView(searchText: $searchText, isSearching: $isSearching)
+                ForEach(viewmodel.countries.filter { "\($0.name)".contains(searchText) || searchText.isEmpty }, id: \.code) { country in
                     let detailsView = CountryDetailsView(country: country)
                     NavigationLink(
                         destination: detailsView,
