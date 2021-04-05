@@ -14,22 +14,28 @@ struct CountryListView: View {
     @State var isSearching: Bool = false
     
     var body: some View {
-        NavigationView {
-            List {
-                SearchBarView(searchText: $searchText, isSearching: $isSearching)
-                ForEach(viewmodel.countries.filter { "\($0.name)".contains(searchText) || searchText.isEmpty }, id: \.code) { country in
-                    let detailsView = CountryDetailsView(country: country)
-                    NavigationLink(
-                        destination: detailsView,
-                        label: {
-                            HStack {
-                                Text("\(country.name)")
-                                    .padding(.leading)
-                                Text("\(country.emoji)")
-                            }
-                        })
+        ZStack {
+            NavigationView {
+                VStack {
+                    SearchBarView(searchText: $searchText, isSearching: $isSearching)
+                        .padding([.leading, .trailing])
+                    List {
+                        ForEach(viewmodel.countries.filter { "\($0.name)".contains(searchText) || searchText.isEmpty }, id: \.code) { country in
+                            let detailsView = CountryDetailsView(country: country)
+                            NavigationLink(
+                                destination: detailsView,
+                                label: {
+                                    HStack {
+                                        Text("\(country.name)")
+                                            .padding(.leading)
+                                        Text("\(country.emoji)")
+                                    }
+                                })
+                        }
+                    }
+                    .listStyle(PlainListStyle())
                 }
-            }
+                
             .navigationBarTitle("Countries", displayMode: .large)
             .toolbar(content: {
                 Button(action: {
@@ -38,6 +44,13 @@ struct CountryListView: View {
                     Text("Get Countries")
                 })
             })
+            }
+            if viewmodel.countries.isEmpty {
+                Text("Fetch failed. Try again by pressing Get Countries button")
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(.secondary)
+                    .padding(24)
+            }
         }
         
     }
