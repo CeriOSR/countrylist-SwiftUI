@@ -1,0 +1,23 @@
+query CountryList {
+  countries {
+    code
+    name
+    native
+    capital
+    emoji
+    currency
+    languages {
+      code
+      name
+    }
+    phone
+    emojiU
+    states{
+      name
+    }
+    continent {
+      code
+      name
+    }
+  }
+}
