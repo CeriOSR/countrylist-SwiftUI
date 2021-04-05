@@ -24,7 +24,7 @@
 		E059F4C22618F617000EB91E /* CountryDetailsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E059F4C12618F617000EB91E /* CountryDetailsTests.swift */; };
 		E059F4CD2618F617000EB91E /* CountryDetailsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E059F4CC2618F617000EB91E /* CountryDetailsUITests.swift */; };
 		E059F4EF2618F7B8000EB91E /* Queries.graphql in Resources */ = {isa = PBXBuildFile; fileRef = E059F4EE2618F7B8000EB91E /* Queries.graphql */; };
-		E059F4FF2618FC01000EB91E /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = E059F4FE2618FC01000EB91E /* API.swift */; };
+		E0C47CC7261B8F8300CD7E76 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C47CC6261B8F8300CD7E76 /* API.swift */; };
 		E1B93DD1C69B9CD27CC35976 /* Pods_CountryDetails.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A41F78CC3410208D69E8955F /* Pods_CountryDetails.framework */; };
 /* End PBXBuildFile section */
 
@@ -76,8 +76,8 @@
 		E059F4CC2618F617000EB91E /* CountryDetailsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailsUITests.swift; sourceTree = "<group>"; };
 		E059F4CE2618F617000EB91E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E059F4EE2618F7B8000EB91E /* Queries.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Queries.graphql; sourceTree = "<group>"; };
-		E059F4F62618F887000EB91E /* schema.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
-		E059F4FE2618FC01000EB91E /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		E0C47CBC261B8EFE00CD7E76 /* schema.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
+		E0C47CC6261B8F8300CD7E76 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,8 +174,8 @@
 		E059F4AE2618F614000EB91E /* CountryDetails */ = {
 			isa = PBXGroup;
 			children = (
-				E059F4FE2618FC01000EB91E /* API.swift */,
-				E059F4F62618F887000EB91E /* schema.json */,
+				E0C47CC6261B8F8300CD7E76 /* API.swift */,
+				E0C47CBC261B8EFE00CD7E76 /* schema.json */,
 				E059F4ED2618F78A000EB91E /* Apollo */,
 				E059F4E92618F761000EB91E /* Views */,
 				E059F4E82618F755000EB91E /* Model */,
@@ -484,7 +484,7 @@
 		};
 		E059F4F72618F8CA000EB91E /* Generate Apollo GraphQL API */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 12;
 			files = (
 			);
 			inputFileListPaths = (
@@ -496,7 +496,7 @@
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "SCRIPT_PATH=\"${PODS_ROOT}/Apollo/scripts\"\ncd \"${SRCROOT}/${TARGET_NAME}\"\n\"${SCRIPT_PATH}\"/run-bundled-codegen.sh codegen:generate --target=swift --includes=./**/*.graphql --localSchemaFile=\"schema.json\" API.swift\n\n";
 		};
@@ -507,13 +507,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0C47CC7261B8F8300CD7E76 /* API.swift in Sources */,
 				E059F4B22618F614000EB91E /* CountryListView.swift in Sources */,
 				E02EEF6A26194BAC0021430B /* StateListView.swift in Sources */,
 				E02EEF6026191B440021430B /* CountryDetailsView.swift in Sources */,
 				E05107102618FF4F0006217F /* ApiService.swift in Sources */,
 				E05107092618FDE70006217F /* CountryListViewModel.swift in Sources */,
 				E02EEF65261940D30021430B /* LanguageListView.swift in Sources */,
-				E059F4FF2618FC01000EB91E /* API.swift in Sources */,
 				E05107182618FFC40006217F /* ApiClient.swift in Sources */,
 				E02EEF7F2619881F0021430B /* ApiConfig.swift in Sources */,
 				E02EEF7A261987EC0021430B /* MockApiService.swift in Sources */,

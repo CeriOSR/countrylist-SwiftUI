@@ -15,5 +15,9 @@ query CountryList {
     states{
       name
     }
+    continent {
+      code
+      name
+    }
   }
 }
