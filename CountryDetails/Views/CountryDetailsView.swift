@@ -22,6 +22,7 @@ struct CountryDetailsView: View {
                 Text("Country Code: \(country.code)")
                     .padding(EdgeInsets(top: 20, leading: 10, bottom: 5, trailing: 10))
                 Text("Country Phone Code: \(country.phone)").padding(5)
+                Text("Continent: \(country.continent.name),  \(country.continent.code)").padding(5)
                 if let capital = country.capital {
                     Text("Capital: \(capital)").padding(5)
                 }
