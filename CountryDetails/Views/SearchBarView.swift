@@ -30,7 +30,6 @@ struct SearchBarView: View {
                     Spacer()
                     if isSearching {
                         Button(action: {
-                            isSearching = false
                             searchText = ""
                         }, label: {
                             Image(systemName: "xmark.circle.fill")
@@ -53,6 +52,8 @@ struct SearchBarView: View {
                         .padding(.trailing, 0)
                         .padding(.leading, 0)
                 })
+                .transition(.move(edge: .trailing))
+                .animation(.easeInOut)
             }
         }
     }
