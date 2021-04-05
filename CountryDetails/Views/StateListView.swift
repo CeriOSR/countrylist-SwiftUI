@@ -16,8 +16,11 @@ struct StateListView: View {
                     .padding(.leading)
             }
             if country.states.isEmpty {
-                Text("This country has no states or provinces.")
+                Text("\(country.name) has no states or provinces.")
+                    .multilineTextAlignment(.center)
                     .foregroundColor(.secondary)
+                    .padding(24)
+                    
             }
         }
         
