@@ -26,6 +26,7 @@
 		E059F4EF2618F7B8000EB91E /* Queries.graphql in Resources */ = {isa = PBXBuildFile; fileRef = E059F4EE2618F7B8000EB91E /* Queries.graphql */; };
 		E0C47CCD261BA2E100CD7E76 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C47CCC261BA2E100CD7E76 /* View.swift */; };
 		E0C47CD5261BA82600CD7E76 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C47CD4261BA82600CD7E76 /* SearchBarView.swift */; };
+		E0C47D0A261BC07D00CD7E76 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C47D09261BC07D00CD7E76 /* API.swift */; };
 		E1B93DD1C69B9CD27CC35976 /* Pods_CountryDetails.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A41F78CC3410208D69E8955F /* Pods_CountryDetails.framework */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +81,7 @@
 		E0C47CBC261B8EFE00CD7E76 /* schema.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
 		E0C47CCC261BA2E100CD7E76 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		E0C47CD4261BA82600CD7E76 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		E0C47D09261BC07D00CD7E76 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +178,7 @@
 		E059F4AE2618F614000EB91E /* CountryDetails */ = {
 			isa = PBXGroup;
 			children = (
+				E0C47D09261BC07D00CD7E76 /* API.swift */,
 				E0C47CCB261BA2AA00CD7E76 /* Extensions */,
 				E0C47CBC261B8EFE00CD7E76 /* schema.json */,
 				E059F4ED2618F78A000EB91E /* Apollo */,
@@ -518,6 +521,7 @@
 				E02EEF65261940D30021430B /* LanguageListView.swift in Sources */,
 				E05107182618FFC40006217F /* ApiClient.swift in Sources */,
 				E0C47CCD261BA2E100CD7E76 /* View.swift in Sources */,
+				E0C47D0A261BC07D00CD7E76 /* API.swift in Sources */,
 				E0C47CD5261BA82600CD7E76 /* SearchBarView.swift in Sources */,
 				E02EEF7F2619881F0021430B /* ApiConfig.swift in Sources */,
 				E02EEF7A261987EC0021430B /* MockApiService.swift in Sources */,
