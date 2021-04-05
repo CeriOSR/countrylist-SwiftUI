@@ -4,7 +4,10 @@ Country List App
 - Using Apollo to fetch GraphQL data.
 
 Directions:
-- I did not include the podfiles or the API.swift but included is the podfile, the podfile.lock, schema and .graphql file.
-- run `pod install` and build the to generate a API.swift file.
+- I did not include the Pods but included is the podfile, the podfile.lock, schema. API.swift and .graphql file.
+- After cloning, switch to the directory of the project in the terminal.
+- Run `pod install` in terminal.
+- Open the .xcworkspace file.
+- Build and run.
 
-Thank you for the opportunity. Have a wonderful week.
+Thank you for your feedback. Have a wonderful week.
